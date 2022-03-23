@@ -71,6 +71,8 @@ function Home() {
         </div>
       </section>
       <footer className="footer">
+        <p>© 2022 Museu Inseto UFRA.</p>
+
         <ul>
           <li>
             <a
