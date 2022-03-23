@@ -4,15 +4,11 @@
     height: 100vh;
     background: white;
     position: relative;
-    
-    
-
-    
 }
 
 .image-section {
-    height: 60vh;
-    background-image: url('../../assets/main-background.png');
+    height: 80vh;
+    background-image: url('../../assets/home.jpg');
     background-position: center;
     background-size: cover;
 
@@ -65,6 +61,7 @@
     flex-wrap: wrap;
     gap: 100px;
     padding: 80px 72px 0px 72px;
+    margin-bottom: 80px;
 
 
     div {
@@ -83,7 +80,7 @@
 }
 
 .footer {
-    height: 60px;
+    height: 90px;
     
     display: flex;
     align-items: center;
