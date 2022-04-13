@@ -4,6 +4,7 @@
     height: 100vh;
     background: white;
     position: relative;
+  
 }
 
 .image-section {
@@ -44,33 +45,29 @@
                 align-items: center;
                 justify-content: center;
                 position: relative;
-                
-                
-                a {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    position: relative;
-                    height: 100%;   
-                    text-decoration: none;
-                    color: white;
-                    padding: 10px;
-                    
-                    &::after {
-                        display: none;
-                        content: " ";
-                        position: absolute;
-                        bottom: 0;
-                        height: 2px;
-                        width: 100%;
-                        background-color: white;
-
-                    }
-
-                    &:hover::after {
-                        display: block;
-                    } 
+                color: white;
+                padding: 10px;
+                height: 100%;   
+                &::after {
+                    display: none;
+                    content: " ";
+                    position: absolute;
+                    bottom: 0;
+                    height: 2px;
+                    width: 100%;
+                    background-color: white;
+    
                 }
+
+                &:hover {
+                    cursor: pointer;
+                }
+    
+                &:hover::after {
+                    display: block;
+                } 
+                
+             
             }
 
         }
@@ -110,6 +107,40 @@
     }
 
 }
+
+.search-section {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    flex-wrap: wrap;
+    height: fit-content;
+    padding: 40px 0;
+    gap: 40px;
+ 
+}
+
+.cardfilter-container {
+    display: flex; 
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    gap: 24px;
+    padding: 16px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    h1 {
+        font-weight: normal;
+    }
+
+
+}
+
 
 .footer {
     height: 90px;

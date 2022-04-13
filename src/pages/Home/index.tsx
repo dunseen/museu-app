@@ -1,108 +1,107 @@
-import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
+import TagsSearch from "../../components/Autocomplete";
+import { Card } from "../../components/Card";
+import CardFilter from "../../components/CardFilter";
+import { Footer } from "../../components/Footer";
+import { useActiveSection } from "../../hooks/useActiveSection";
+import { useContent } from "../../hooks/useContent";
 
-import iconAbelha from "../../assets/iconAbelha.png";
-import iconBorboleta from "../../assets/iconBorboleta.png";
-import iconFormiga from "../../assets/iconFormiga.png";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 
+import list from "../../mock/list.json";
 import "./home.style.scss";
+import Card1 from "../../components/Card1";
+import Card2 from "../../components/Card2";
+import Card3 from "../../components/Card3";
+import SpecieCard from "../../components/SpecieCard/SpecieCard";
 
 function Home() {
+  const content = useContent();
+  const { activeSection, handleActiveSection } = useActiveSection();
+
   return (
     <div className="home-container">
       <section className="image-section">
         <header>
           <ul>
-            <li>
-              <a href="#">Início</a>
-            </li>
-            <li>
-              <a href="#">Busca</a>
-            </li>
-            <li>
-              <a href="#">Contato</a>
-            </li>
+            <li onClick={() => handleActiveSection("informative")}>Início</li>
+
+            <li onClick={() => handleActiveSection("search")}>Busca</li>
+
+            <li>Contato</li>
           </ul>
         </header>
       </section>
-      <section className="informative-section">
-        <div>
-          <img src={iconAbelha} alt="icon-abelha" />
-          <h1>Insetos</h1>
-          <p>
-            Você acha que os insetos não são importantes e que só atrapalham?
-            Consegue imaginar nosso planeta 15% mais leve e com a metade dos
-            seres vivos existentes? Pois é, os insetos, aparentemente tão
-            insignificantes, representam mais da metade da vida do planeta e,
-            somente as formigas, 15% de seu peso! É melhor conhecermos um pouco
-            mais sobre esses animais, não é mesmo? Mas, que tal de uma forma
-            diferente? Já imaginou um zoológico de insetos? Nunca imaginou? Pois
-            nós fizemos um e disponibilizamos isso para você!
-          </p>
-        </div>
 
-        <div>
-          <img src={iconBorboleta} alt="icon-borboleta" />
-          <h1>Planeta inseto</h1>
-          <p>
-            Você acha que os insetos não são importantes e que só atrapalham?
-            Consegue imaginar nosso planeta 15% mais leve e com a metade dos
-            seres vivos existentes? Pois é, os insetos, aparentemente tão
-            insignificantes, representam mais da metade da vida do planeta e,
-            somente as formigas, 15% de seu peso! É melhor conhecermos um pouco
-            mais sobre esses animais, não é mesmo? Mas, que tal de uma forma
-            diferente? Já imaginou um zoológico de insetos? Nunca imaginou? Pois
-            nós fizemos um e disponibilizamos isso para você!
-          </p>
-        </div>
+      {activeSection === "search" ? (
+        <>
+          <section id="search" className="search-section">
+            <TagsSearch />
+            <div
+              style={{
+                display: "flex",
+                width: "100%",
+                justifyContent: "center",
+                flexWrap: "wrap",
+                gap: "24px",
+                minHeight: 408,
+              }}
+            >
+              <Card1 />
+              <Card2 />
+              <Card3 />
+            </div>
+          </section>
 
-        <div>
-          <img src={iconFormiga} alt="icon-formiga" />
-          <h1>Atividades lúdicas</h1>
-          <p>
-            Você acha que os insetos não são importantes e que só atrapalham?
-            Consegue imaginar nosso planeta 15% mais leve e com a metade dos
-            seres vivos existentes? Pois é, os insetos, aparentemente tão
-            insignificantes, representam mais da metade da vida do planeta e,
-            somente as formigas, 15% de seu peso! É melhor conhecermos um pouco
-            mais sobre esses animais, não é mesmo? Mas, que tal de uma forma
-            diferente? Já imaginou um zoológico de insetos? Nunca imaginou? Pois
-            nós fizemos um e disponibilizamos isso para você!
-          </p>
-        </div>
-      </section>
-      <footer className="footer">
-        <p>© 2022 Museu Inseto UFRA.</p>
+          <section
+            style={{
+              padding: "40px 72px",
+              width: "100%",
+              maxWidth: 1440,
+              margin: "0 auto",
+            }}
+          >
+            <div
+              style={{ borderBottom: "4px solid green", marginBottom: "40px" }}
+            >
+              <h3 style={{ fontSize: "28px", fontWeight: "normal" }}>
+                Resultado
+              </h3>
+            </div>
 
-        <ul>
-          <li>
-            <a
-              href="https://pt-br.facebook.com/UFRAOficial/"
-              target={"_blank"}
-              rel="noreferrer"
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4,280px)",
+                placeContent: "center",
+                placeItems: "center",
+
+                gap: 24,
+              }}
             >
-              <BsFacebook size={"25"} />
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.instagram.com/ufraoficial/"
-              target={"_blank"}
-              rel="noreferrer"
-            >
-              <BsInstagram size={"25"} />
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://twitter.com/UfraOficial?s=20&t=ycti-n6SFrQY7x5sXd8ipg"
-              target={"_blank"}
-              rel="noreferrer"
-            >
-              <BsTwitter size={"25"} />
-            </a>
-          </li>
-        </ul>
-      </footer>
+              <SpecieCard />
+              <SpecieCard />
+              <SpecieCard />
+              <SpecieCard />
+              <SpecieCard />
+            </div>
+          </section>
+        </>
+      ) : (
+        <section id="informative" className="informative-section">
+          {content.map((item) => (
+            <Card
+              key={item.title}
+              iconURL={item.iconURL}
+              imageAlt={item.imageAlt}
+              content={item.content}
+              title={item.title}
+            />
+          ))}
+        </section>
+      )}
+
+      <Footer />
     </div>
   );
 }
