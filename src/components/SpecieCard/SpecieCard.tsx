@@ -9,7 +9,7 @@ const SpecieCard: React.FC = () => {
 
       <div>
         <p>SAIBA MAIS</p>
-        <BsArrowRightCircle />
+        <BsArrowRightCircle size={20} />
       </div>
     </div>
   );

@@ -1,11 +1,13 @@
 import React from "react";
 import Button from "@mui/material/Button";
+import { useMainContext } from "../../context/MainContext";
 
 interface CardFilterProps {
   title: string;
 }
 
 const CardFilter: React.FC<CardFilterProps> = ({ title, children }) => {
+  const { handleRenderList } = useMainContext();
   return (
     <div className="cardfilter-container">
       <h1>{title}</h1>
@@ -20,7 +22,9 @@ const CardFilter: React.FC<CardFilterProps> = ({ title, children }) => {
         }}
       >
         {children}
-        <Button variant="contained">Buscar</Button>
+        <Button onClick={handleRenderList} variant="contained">
+          Buscar
+        </Button>
       </div>
     </div>
   );

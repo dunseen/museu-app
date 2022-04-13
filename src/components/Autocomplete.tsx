@@ -2,20 +2,19 @@ import * as React from "react";
 import Chip from "@mui/material/Chip";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
 
-import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import { BiSearch } from "react-icons/bi";
 
 import list from "../mock/list.json";
+import { useMainContext } from "../context/MainContext";
 
 export default function TagsSearch() {
+  const { handleRenderList } = useMainContext();
   return (
     <div
       style={{
         width: "100%",
-        maxWidth: "500px",
         display: "flex",
         height: "fit-content",
         alignItems: "center",
@@ -43,7 +42,7 @@ export default function TagsSearch() {
           />
         )}
       />
-      <IconButton size="medium">
+      <IconButton size="medium" onClick={handleRenderList}>
         <BiSearch size={25} />
       </IconButton>
     </div>

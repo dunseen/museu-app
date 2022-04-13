@@ -1,23 +1,21 @@
 import TagsSearch from "../../components/Autocomplete";
 import { Card } from "../../components/Card";
-import CardFilter from "../../components/CardFilter";
 import { Footer } from "../../components/Footer";
 import { useActiveSection } from "../../hooks/useActiveSection";
 import { useContent } from "../../hooks/useContent";
 
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-
-import list from "../../mock/list.json";
-import "./home.style.scss";
 import Card1 from "../../components/Card1";
 import Card2 from "../../components/Card2";
 import Card3 from "../../components/Card3";
 import SpecieCard from "../../components/SpecieCard/SpecieCard";
 
+import "./home.style.scss";
+import { useMainContext } from "../../context/MainContext";
+
 function Home() {
   const content = useContent();
   const { activeSection, handleActiveSection } = useActiveSection();
+  const { shouldRenderList } = useMainContext();
 
   return (
     <div className="home-container">
@@ -41,9 +39,9 @@ function Home() {
               style={{
                 display: "flex",
                 width: "100%",
-                justifyContent: "center",
+                justifyContent: "space-between",
+                padding: "40px 0",
                 flexWrap: "wrap",
-                gap: "24px",
                 minHeight: 408,
               }}
             >
@@ -53,39 +51,48 @@ function Home() {
             </div>
           </section>
 
-          <section
-            style={{
-              padding: "40px 72px",
-              width: "100%",
-              maxWidth: 1440,
-              margin: "0 auto",
-            }}
-          >
-            <div
-              style={{ borderBottom: "4px solid green", marginBottom: "40px" }}
-            >
-              <h3 style={{ fontSize: "28px", fontWeight: "normal" }}>
-                Resultado
-              </h3>
-            </div>
-
-            <div
+          {shouldRenderList && (
+            <section
+              id="list-result"
               style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(4,280px)",
-                placeContent: "center",
-                placeItems: "center",
-
-                gap: 24,
+                padding: "40px 72px",
+                width: "100%",
+                maxWidth: 1440,
+                margin: "0 auto",
               }}
             >
-              <SpecieCard />
-              <SpecieCard />
-              <SpecieCard />
-              <SpecieCard />
-              <SpecieCard />
-            </div>
-          </section>
+              <div
+                style={{
+                  borderBottom: "4px solid green",
+                  marginBottom: "40px",
+                }}
+              >
+                <h3 style={{ fontSize: "28px", fontWeight: "normal" }}>
+                  Resultado
+                </h3>
+              </div>
+
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(4,280px)",
+                  placeContent: "center",
+                  placeItems: "center",
+
+                  gap: 24,
+                }}
+              >
+                <SpecieCard />
+                <SpecieCard />
+                <SpecieCard />
+                <SpecieCard />
+                <SpecieCard />
+                <SpecieCard />
+                <SpecieCard />
+                <SpecieCard />
+              </div>
+            </section>
+          )}
         </>
       ) : (
         <section id="informative" className="informative-section">

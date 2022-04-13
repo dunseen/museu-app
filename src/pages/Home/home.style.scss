@@ -115,11 +115,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: 400px;
     flex-wrap: wrap;
     height: fit-content;
-    padding: 40px 0;
+    padding: 40px 72px;
     gap: 40px;
  
 }
