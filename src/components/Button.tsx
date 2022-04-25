@@ -1,11 +1,19 @@
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import { ButtonProps, Button as CUIButton } from "@chakra-ui/react";
+import { ReactNode } from "react";
 
-interface ButtonProps {
+interface CustomButtonPros {
   children: ReactNode;
 }
 
-function Button({ children }: ButtonHTMLAttributes<ButtonProps>) {
-  return <button>{children}</button>;
-}
+const Button: React.FC<CustomButtonPros & ButtonProps> = ({
+  children,
+  ...rest
+}) => {
+  return (
+    <CUIButton w={"100%"} colorScheme={"green"} variant={"solid"} {...rest}>
+      {children}
+    </CUIButton>
+  );
+};
 
 export { Button };

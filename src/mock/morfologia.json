@@ -1,0 +1,22 @@
+[
+    {
+        "label": "Antenas",
+        "value": "antenas"
+    },
+    {
+        "label": "Aparelho bucal",
+        "value": "aparelho_bucal"
+    },
+    {
+        "label": "Asas",
+        "value": "asas"
+    },
+    {
+        "label": "Abdômen",
+        "value": "abdomen"
+    },
+    {
+        "label": "Pernas",
+        "value": "pernas"
+    }
+]

@@ -21,7 +21,7 @@ export default function TagsSearch() {
         gap: "8px",
       }}
     >
-      <Autocomplete
+      {/* <Autocomplete
         multiple
         id="tags-filled"
         sx={{ width: "100%" }}
@@ -41,7 +41,7 @@ export default function TagsSearch() {
             placeholder="Adicione ou selecione uma tag"
           />
         )}
-      />
+      /> */}
       <IconButton size="medium" onClick={handleRenderList}>
         <BiSearch size={25} />
       </IconButton>
