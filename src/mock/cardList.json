@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "name": "Caddisflies",
+        "imageLink": "https://www.generatormix.com/images/insect/caddisflies-(order-trichoptera).jpg"
+    },
+    {
+        "id": "2",
+        "name": "assassin bugs",
+        "imageLink": "https://www.generatormix.com/images/insect/assassin-bugs-(family-reduviidae).jpg"
+    },
+    {
+        "id": "3",
+        "name": "carpenter bees",
+        "imageLink": "https://www.generatormix.com/images/insect/carpenter-bees-(subfamily-xylocopinae).jpg"
+    },
+    {
+        "id": "4",
+        "name": "ermine moths",
+        "imageLink": "https://www.generatormix.com/images/insect/ermine-moths-(family-yponomeutidae).jpg"
+    },
+    {
+        "id": "5",
+        "name": "giant water bugs",
+        "imageLink": "https://www.generatormix.com/images/insect/giant-water-bugs-(family-belostomatidae).jpg"
+    },
+    {
+        "id": "6",
+        "name": "ladybugs",
+        "imageLink": "https://www.generatormix.com/images/insect/ladybugs-(family-coccinellidae).jpg"
+    }
+]
